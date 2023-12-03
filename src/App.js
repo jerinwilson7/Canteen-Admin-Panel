@@ -1,9 +1,15 @@
 import React from "react";
-import { LoginPage } from "./Pages";
+import { HomePage, LoginPage } from "./Pages";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return <div>
-    <LoginPage />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   </div>
 }
 
