@@ -1,4 +1,7 @@
 import LoginPage from "./LoginPage";
-import HomePage from "./HomePage";
+import DashboardPage from "./DashboardPage";
+import FoodPage from "./FoodPage";
+import MenuPage from "./MenuPage";
+import OrdersPage from "./OrdersPage";
 
-export { LoginPage, HomePage };
+export { LoginPage ,DashboardPage,FoodPage,MenuPage,OrdersPage};
