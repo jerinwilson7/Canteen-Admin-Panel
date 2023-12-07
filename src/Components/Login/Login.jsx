@@ -2,8 +2,8 @@ import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import React, { useState } from 'react'
-import { server } from '../../server'
 import { useNavigate } from 'react-router-dom'
+import { server } from '../../server'
 
 function Login() {
 

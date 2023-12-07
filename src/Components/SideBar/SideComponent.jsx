@@ -2,15 +2,24 @@ import React from "react";
 import SideBar from "./SideBar";
 import { ArrowLeftRight, BarChart3, MenuSquare, Utensils } from "lucide-react";
 import Item from "./Item";
+import { NavLink } from "react-router-dom";
 
 function SideComponent() {
   return (
     <div>
       <SideBar>
-        <Item icon={<BarChart3 size={20} />} text="Dashboard" path="/" active />
-        <Item icon={<Utensils size={20} />} text="Food" />
-        <Item icon={<MenuSquare size={20} />} text="Menu" />
-        <Item icon={<ArrowLeftRight size={20} />} text="Orders" alert />
+        <NavLink exact to="/dash">
+          <Item icon={<BarChart3 size={20} />} text="Dashboard" active />
+        </NavLink>
+        <NavLink to="/food">
+          <Item icon={<Utensils size={20} />} text="Food" />
+        </NavLink>
+        <NavLink to="/menu">
+          <Item icon={<MenuSquare size={20} />} text="Menu" />
+        </NavLink>
+        <NavLink to="/orders">
+          <Item icon={<ArrowLeftRight size={20} />} text="Orders" alert />
+        </NavLink>
       </SideBar>
     </div>
   );
