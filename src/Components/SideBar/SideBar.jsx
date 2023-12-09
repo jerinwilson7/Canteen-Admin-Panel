@@ -2,7 +2,7 @@ import React from "react";
 
 function SideBar({ children }) {
   return (
-    <aside className="h-screen w-1/5">
+    <aside className="flex h-screen w-1/5">
       <nav className="h-full flex flex-col bg-paleSilver border-r shadow-sm">
         <div className="p-4 pb-2 flex justify-center items-center">
           <h3 className="font-bold block text-3xl text-raisingBlack">Admin</h3>
