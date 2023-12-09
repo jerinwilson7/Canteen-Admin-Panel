@@ -1,5 +1,5 @@
 import React from "react";
-import { DashboardPage, FoodPage, LoginPage, MenuPage, OrdersPage } from "./Pages";
+import { AddProductPage, DashboardPage, FoodPage, LoginPage, MenuPage, OrdersPage } from "./Pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { SideComponent } from "./Components";
 
@@ -12,6 +12,7 @@ function App() {
         <Route path="/food" element={<FoodPage/>}/>
         <Route path="/menu" element={<MenuPage/>}/>
         <Route path="/orders" element={<OrdersPage/>}/>
+        <Route path="/add-product" element={<AddProductPage/>}/>
         </Routes>
         <SideComponent/>
     </BrowserRouter>
