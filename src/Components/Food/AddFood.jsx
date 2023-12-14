@@ -2,8 +2,8 @@ import { faImages } from "@fortawesome/free-regular-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import { Server } from "lucide-react";
 import React, { useState } from "react";
+import { server } from "../../server";
 
 function AddFood() {
   const [foodImage, setFoodImage] = useState(null);
@@ -12,6 +12,7 @@ function AddFood() {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
+  const [title, setTitle] = useState("");
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
@@ -19,7 +20,23 @@ function AddFood() {
   };
 
   const handleSubmit = (e) => {
+    console.log(server);
     e.preventDefault();
+    const config = { headers: { "Content-Type": "multipart/form-data" } };
+    const newForm = new FormData();
+
+    newForm.append("file", foodImage);
+    newForm.append("name", name);
+    newForm.append("title", title)
+    newForm.append("category", category);
+    newForm.append("description", description);
+    newForm.append("quantity", quantity);
+    newForm.append("price", price);
+
+    axios.post(`${server}/admin/add-product`, newForm, config).then((res) => {
+      console.log("send");
+      console.log(res);
+    });
   };
   return (
     <div className="flex flex-1 items-center justify-center">
@@ -29,12 +46,7 @@ function AddFood() {
           Add Food
         </h1>
         <hr />
-        <form
-          action=""
-          className="space-y-6"
-          onSubmit={handleSubmit}
-          encType="multipart/form-data"
-        >
+        <form action="" className="space-y-6" onSubmit={handleSubmit}>
           <div className="relative mt-3">
             <label htmlFor="name" className="text-base block mb-3">
               Name
@@ -44,6 +56,19 @@ function AddFood() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter Food Name"
+              required
+              className="w-full bg-white text-base border px-2 py-2 focus:outline-none focus:ring-1 hover: bg-transparent border-chineseBlack"
+            />
+          </div>
+          <div className="relative mt-3">
+            <label htmlFor="title" className="text-base block mb-3">
+              Title
+            </label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Enter the Title"
               required
               className="w-full bg-white text-base border px-2 py-2 focus:outline-none focus:ring-1 hover: bg-transparent border-chineseBlack"
             />
@@ -74,32 +99,37 @@ function AddFood() {
               className="w-full bg-white text-base border px-2 py-2 focus:outline-none focus:ring-1 hover: bg-transparent border-chineseBlack"
             />
           </div>
-          <div className="relative mt-3">
-            <label htmlFor="quantity" className="text-base block mb-3">
-              Quantity
-            </label>
-            <input
-              type="number"
-              value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
-              placeholder="Enter the quantity to be added"
-              required
-              className="w-full bg-white text-base border px-2 py-2 focus:outline-none focus:ring-1 hover: bg-transparent border-chineseBlack"
-            />
+          <div className="flex flex-col md:flex-row md:space-x-4">
+            <div className="flex flex-col">
+              <label htmlFor="quantity" className="mb-1">
+                Quantity
+              </label>
+              <input
+                type="number"
+                id="quantity"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+                placeholder="Enter the quantity to be added"
+                required
+                className="border rounded-md p-2 w-full"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="price" className="mb-1">
+                Price
+              </label>
+              <input
+                type="number"
+                id="price"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                placeholder="Enter the price"
+                required
+                className="border rounded-md p-2 w-full"
+              />
+            </div>
           </div>
-          <div className="relative mt-3">
-            <label htmlFor="price" className="text-base block mb-3">
-              Price
-            </label>
-            <input
-              type="number"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-              placeholder="Enter the price"
-              required
-              className="w-full bg-white text-base border px-2 py-2 focus:outline-none focus:ring-1 hover: bg-transparent border-chineseBlack"
-            />
-          </div>
+
           <div>
             <label
               htmlFor="avatar"
