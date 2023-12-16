@@ -1,9 +1,12 @@
+
+
 import { faImages } from "@fortawesome/free-regular-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useState } from "react";
 import { server } from "../../server";
+import { convertToBase64 } from "../../Helpers/B64";
 
 function AddFood() {
   const [foodImage, setFoodImage] = useState(null);
@@ -14,9 +17,11 @@ function AddFood() {
   const [price, setPrice] = useState("");
   const [title, setTitle] = useState("");
 
-  const handleFileInputChange = (e) => {
+  const handleFileInputChange =async (e) => {
     const file = e.target.files[0];
-    setFoodImage(file);
+    const base64 = await convertToBase64(file)
+    console.log(base64)
+    setFoodImage({...foodImage, FoodImage: base64});
   };
 
   const handleSubmit = (e) => {
@@ -25,13 +30,16 @@ function AddFood() {
     const config = { headers: { "Content-Type": "multipart/form-data" } };
     const newForm = new FormData();
 
-    newForm.append("file", foodImage);
+
+    newForm.append("file", foodImage.FoodImage);
     newForm.append("name", name);
     newForm.append("title", title)
     newForm.append("category", category);
     newForm.append("description", description);
     newForm.append("quantity", quantity);
     newForm.append("price", price);
+
+    console.log(newForm)
 
     axios.post(`${server}/admin/add-product`, newForm, config).then((res) => {
       console.log("send");
@@ -139,7 +147,8 @@ function AddFood() {
               <span className="inline-block h-8 w-8 rounded-full overflow-hidden">
                 {foodImage ? (
                   <img
-                    src={URL.createObjectURL(foodImage)}
+                    // src={URL.createObjectURL(foodImage)}
+                    src={foodImage.FoodImage}
                     alt="Food-Img"
                     className="h-full w-full object-cover rounded-full"
                   />
@@ -154,7 +163,7 @@ function AddFood() {
                 <span>Upload File</span>
                 <input
                   type="file"
-                  name="Food-Image"
+                  name="FoodImage"
                   id="file-input"
                   accept=".jpg,.jpeg,.png"
                   className="sr-only"
@@ -176,3 +185,4 @@ function AddFood() {
 }
 
 export default AddFood;
+
