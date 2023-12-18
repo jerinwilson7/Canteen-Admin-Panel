@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { server } from "../../server";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 function AllFood() {
   const [foodList, setFoodList] = useState([]);
@@ -106,7 +108,7 @@ function AllFood() {
                   colSpan="8"
                   className="p-4 border-b border-blue-gray-50 text-center"
                 >
-                  Loading...
+                  <FontAwesomeIcon icon={faSpinner} className="h-6 w-7"/>
                 </td>
               </tr>
             )}

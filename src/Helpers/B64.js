@@ -6,6 +6,7 @@ const convertToBase64=(file)=>{
             resolve(fileReader.result)
         }
         fileReader.onerror=(error)=>{
+            console.log(error)
             reject(error)
         }
     })
