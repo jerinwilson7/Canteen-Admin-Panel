@@ -4,5 +4,14 @@ import FoodPage from "./FoodPage";
 import MenuPage from "./MenuPage";
 import OrdersPage from "./OrdersPage";
 import AddProductPage from "./AddProductPage";
+import EditFoodPage from "./EditFoodPage";
 
-export { LoginPage ,DashboardPage,FoodPage,MenuPage,OrdersPage,AddProductPage};
+export {
+  LoginPage,
+  DashboardPage,
+  FoodPage,
+  MenuPage,
+  OrdersPage,
+  AddProductPage,
+  EditFoodPage,
+};
