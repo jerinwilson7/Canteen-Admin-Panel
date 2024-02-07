@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {  AddProductPage, DashboardPage, FoodPage, LoginPage, MenuPage, OrdersPage } from "./Pages";
+import {  AddProductPage, DashboardPage, EditFoodPage, FoodPage, LoginPage, MenuPage, OrdersPage } from "./Pages";
 import { SideComponent } from "./Components";
 
 function App() {
@@ -36,6 +36,7 @@ function WithSidebarRoutes() {
         <Route path="/orders" element={<OrdersPage />} />
         <Route path="/add-food" element={<AddProductPage />} />
         <Route path="/all-products" element={<FoodPage/>} />
+        <Route path="/edit-food" element={<EditFoodPage/>} />
       </Routes>
     </>
   );
