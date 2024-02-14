@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { server } from "../../server";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 function AllFood() {
   const [foodList, setFoodList] = useState([]);
@@ -9,6 +12,8 @@ function AllFood() {
   useEffect(() => {
     fetchFoods();
   }, []);
+
+  const navigate = useNavigate();
 
   const fetchFoods = async () => {
     try {
@@ -22,6 +27,10 @@ function AllFood() {
       console.error("Error fetching foods:", error);
     }
   };
+  const editFood = async()=>{
+    console.log("edit")
+    navigate('/edit-food')
+  }
 
   return (
     <div className="bg-white px-4 pt-3 pb-4 rounded-sm border border-gray-200 flex-1">
@@ -29,8 +38,8 @@ function AllFood() {
         {" "}
         All Foods ({count})
       </strong>
-      <div className="  border-gray-300 rounded-sm mt-3">
-        <table className="w-full text-gray-700 border-collapse p-3 text-left table">
+      <div className=" mt-3">
+        <table className=" text-gray-700 border-collapse p-3 text-left table">
           <thead className="p-3 text-left">
             <tr>
               <th  className="border-b border-blue-gray-100 bg-blue-gray-50  p-4">
@@ -95,7 +104,7 @@ function AllFood() {
                     {food.quantity}
                   </td>
                   <td className="p-4 border-b border-blue-gray-50 text-white">
-                    <button className="bg-blue-400 p-2 rounded-md w-20 hover:bg-blue-500 transition duration-300 ease-in-out">Edit</button>
+                    <button className="bg-blue-400 p-2 rounded-md w-20 hover:bg-blue-500 transition duration-300 ease-in-out" onClick={editFood} >Edit</button>
                     <button className="bg-red-400 m-1 p-2 rounded-md w-20  hover:bg-red-500 transition duration-300 ease-in-out">Delete</button>
                   </td>
                 </tr>
@@ -106,7 +115,7 @@ function AllFood() {
                   colSpan="8"
                   className="p-4 border-b border-blue-gray-50 text-center"
                 >
-                  Loading...
+                  <FontAwesomeIcon icon={faSpinner} className="h-6 w-7"/>
                 </td>
               </tr>
             )}

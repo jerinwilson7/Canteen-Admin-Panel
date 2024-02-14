@@ -18,16 +18,21 @@ function AddFood() {
   const [title, setTitle] = useState("");
 
   const handleFileInputChange =async (e) => {
-    const file = e.target.files[0];
+    try {
+      const file = e.target.files[0];
     const base64 = await convertToBase64(file)
     console.log(base64)
     setFoodImage({...foodImage, FoodImage: base64});
+    } catch (error) {
+      console.log("fie input err : "+error)
+    }
+    
   };
 
   const handleSubmit = (e) => {
     console.log(server);
     e.preventDefault();
-    const config = { headers: { "Content-Type": "multipart/form-data" } };
+    // const config = { headers: { "Content-Type": "multipart/form-data" } };
     const newForm = new FormData();
 
 
@@ -41,7 +46,7 @@ function AddFood() {
 
     console.log(newForm)
 
-    axios.post(`${server}/admin/add-product`, newForm, config).then((res) => {
+    axios.post(`${server}/admin/add-product`, newForm,).then((res) => {
       console.log("send");
       console.log(res);
     });
