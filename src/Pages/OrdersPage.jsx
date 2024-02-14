@@ -1,5 +1,5 @@
 import React from 'react'
-import { OrderComponent } from '../Components'
+import {  OrderTable, } from '../Components'
 
 function OrdersPage() {
   return (
@@ -8,7 +8,7 @@ function OrdersPage() {
       <h1 className='font-semibold text-2xl text-chineseBlack font-Roboto'>Orders</h1>
     </div>
     <div className='flex flex-row w-full gap-4 m-2'>
-      <OrderComponent/>
+      <OrderTable/>
 
     </div>
   </div>   )
