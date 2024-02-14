@@ -5,5 +5,6 @@ import SideComponent from "./SideBar/SideComponent";
 import AddFood from "./Food/AddFood";
 import EditFood from "./Food/EditFood";
 import AllFood from "./Food/AllFood";
+import OrderTable from "./Orders/OrderTable";
 
-export { Login, SideBar ,Item, SideComponent,AddFood ,AllFood,EditFood};
+export { Login, SideBar ,Item, SideComponent,AddFood ,AllFood,EditFood ,OrderTable};

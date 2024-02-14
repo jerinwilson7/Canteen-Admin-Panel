@@ -38,8 +38,8 @@ function AllFood() {
         {" "}
         All Foods ({count})
       </strong>
-      <div className="  border-gray-300 rounded-sm mt-3">
-        <table className="w-full text-gray-700 border-collapse p-3 text-left table">
+      <div className=" mt-3">
+        <table className=" text-gray-700 border-collapse p-3 text-left table">
           <thead className="p-3 text-left">
             <tr>
               <th  className="border-b border-blue-gray-100 bg-blue-gray-50  p-4">
