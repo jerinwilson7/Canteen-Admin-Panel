@@ -7,11 +7,22 @@ import { formatDate } from '../../Helpers/datehelper';
 function OrderTable() {
     const [count, setCount] = useState(0);
   const [data,setData] = useState([])
-  const [records,setRecords] = useState(data)
+  const [filter,setFilter] = useState([])
+  const [search,setSearch] = useState('')
 
   useEffect(() => {
     fetchOrders();
   }, []);
+
+
+  useEffect(() => {
+
+    const result = data.filter((item)=>{
+        return item.items.toLowerCase().match(search.toLocaleLowerCase())
+    })
+    setFilter(result)
+  
+  }, [search,data])
 
   const fetchOrders = async () => {
     try {
@@ -37,6 +48,7 @@ function OrderTable() {
     });
     console.log(orderData.length)
     setData(orderData);
+    setFilter(orderData)
       
     } catch (error) {
       console.log("order fetch error :" + error);
@@ -86,37 +98,7 @@ function OrderTable() {
         },
     ];
 
-    // const handleSearch = (event) =>{
-    //     const newData = records.filter(row=>{
-    //         return row.user.toLowerCase().includes(event.target.value.toLowerCase())
-    //     })
-    //     setRecords(newData)
-    // }
-
-    // const handleSearch = (event) => {
-    //     const searchTerm = event.target.value.toLowerCase();
-    //     console.log(searchTerm)
-    //     const newData = records.filter(row => {
-    //         return (
-    //             row.user.toLowerCase().includes(searchTerm) ||
-    //             row.email.toLowerCase().includes(searchTerm) ||
-    //             row.items.toLowerCase().includes(searchTerm)
-    //         );
-    //     });
-    //     setRecords(newData);
-    // }
-    
-    function handleSearch(event) {
-        const searchTerm = event.target.value.toLowerCase();
-        console.log('Search term:', searchTerm);
-        const newData = records.filter(row => {
-            return row.user.toLowerCase().includes(searchTerm);
-        });
-        console.log('Filtered data:', newData);
-        setRecords(newData);
-    }
-    
-
+   
 
   return (
     <div>
@@ -125,18 +107,23 @@ function OrderTable() {
             <h1 className='text-seaGreen font-bold'>{count}</h1>
             
             
-        </div>
-        <div className='text-end'>
-
-            <input type='text' placeholder='Search item' onChange={handleSearch} className='border-2 p-2'/>
-            </div>
+        </div>     
 
         <div className='mt-5 border border-gray-300'>
 
          <DataTable 
 			columns={columns}
-			data={data}
+			data={filter}
             columnFilter
+            subHeader
+             subHeaderComponent={
+                <input type='text'
+             placeholder='Search item'
+             value={search}
+              onChange={(e)=>setSearch(e.target.value)}
+               className='border-2 p-2'/>
+             }
+             subHeaderAlign='right'
          />
         </div>
     </div>
