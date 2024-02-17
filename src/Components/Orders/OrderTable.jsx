@@ -3,12 +3,14 @@ import React, { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component';
 import { server } from '../../server';
 import { formatDate } from '../../Helpers/datehelper';
+import { Loader } from 'lucide-react';
 
 function OrderTable() {
     const [count, setCount] = useState(0);
   const [data,setData] = useState([])
   const [filter,setFilter] = useState([])
   const [search,setSearch] = useState('')
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetchOrders();
@@ -49,6 +51,7 @@ function OrderTable() {
     console.log(orderData.length)
     setData(orderData);
     setFilter(orderData)
+    setLoading(false)
       
     } catch (error) {
       console.log("order fetch error :" + error);
@@ -102,18 +105,21 @@ function OrderTable() {
 
   return (
     <div>
-        <div className='flex flex-row text-2xl font-Roboto  space-x-2'>
-            <h1 className='font-light'>All Orders</h1>
+
+         <div className='flex flex-row text-2xl font-Roboto  space-x-2'>
+             <h1 className='font-light'>All Orders</h1>
             <h1 className='text-seaGreen font-bold'>{count}</h1>
             
             
-        </div>     
+         </div>      
 
         <div className='mt-5 border border-gray-300'>
 
          <DataTable 
 			columns={columns}
 			data={filter}
+      progressPending={loading}
+      progressComponent={<Loader className=' flex justify-center items-center' size={50}/>}
             columnFilter
             subHeader
              subHeaderComponent={
@@ -125,8 +131,8 @@ function OrderTable() {
              }
              subHeaderAlign='right'
          />
-        </div>
-    </div>
+        </div> 
+     </div>
   )
 }
 
