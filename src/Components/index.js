@@ -6,5 +6,6 @@ import AddFood from "./Food/AddFood";
 import EditFood from "./Food/EditFood";
 import AllFood from "./Food/AllFood";
 import OrderTable from "./Orders/OrderTable";
+import Dashboard from "./Dashboard/Dashboard";
 
-export { Login, SideBar ,Item, SideComponent,AddFood ,AllFood,EditFood ,OrderTable};
+export { Login, SideBar ,Item, SideComponent,AddFood ,AllFood,EditFood ,OrderTable,Dashboard};
