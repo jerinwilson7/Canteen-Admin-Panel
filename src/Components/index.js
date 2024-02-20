@@ -7,5 +7,17 @@ import EditFood from "./Food/EditFood";
 import AllFood from "./Food/AllFood";
 import OrderTable from "./Orders/OrderTable";
 import Dashboard from "./Dashboard/Dashboard";
+import Layout from "./Shared/Layout";
 
-export { Login, SideBar ,Item, SideComponent,AddFood ,AllFood,EditFood ,OrderTable,Dashboard};
+export {
+  Login,
+  SideBar,
+  Item,
+  SideComponent,
+  AddFood,
+  AllFood,
+  EditFood,
+  OrderTable,
+  Dashboard,
+  Layout,
+};
