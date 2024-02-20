@@ -17,16 +17,16 @@ function AddFood() {
   const [price, setPrice] = useState("");
   const [title, setTitle] = useState("");
 
-  const handleFileInputChange =async (e) => {
+  const handleFileInputChange = async (e) => {
     try {
       const file = e.target.files[0];
-    const base64 = await convertToBase64(file)
-    console.log(base64)
-    setFoodImage({...foodImage, FoodImage: base64});
+      const base64 = await convertToBase64(file)
+      console.log(base64)
+      setFoodImage({ ...foodImage, FoodImage: base64 });
     } catch (error) {
-      console.log("fie input err : "+error)
+      console.log("fie input err : " + error)
     }
-    
+
   };
 
   const handleSubmit = (e) => {
