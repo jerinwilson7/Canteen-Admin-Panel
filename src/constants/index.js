@@ -20,9 +20,9 @@ export const Sidebar_Links = [
     icon: <ArrowLeftRightIcon />,
   },
   {
-    key: "dashboard",
-    label: "Dashboard",
-    path: "/",
+    key: "menu",
+    label: "Menu",
+    path: "/menu",
     icon: <BarChart3 />,
   },
 ];
