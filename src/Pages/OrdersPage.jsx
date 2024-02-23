@@ -9,7 +9,6 @@ function OrdersPage() {
       </div>
       <div className='flex  gap-4 m-2'>
         <OrderTable />
-
       </div>
     </div>
   );
