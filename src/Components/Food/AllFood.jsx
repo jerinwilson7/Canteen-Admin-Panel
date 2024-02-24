@@ -27,7 +27,7 @@ function AllFood() {
       console.error("Error fetching foods:", error);
     }
   };
-  const editFood = async()=>{
+  const editFood = async () => {
     console.log("edit")
     navigate('/edit-food')
   }
@@ -42,7 +42,7 @@ function AllFood() {
         <table className=" text-gray-700 border-collapse p-3 text-left table">
           <thead className="p-3 text-left">
             <tr>
-              <th  className="border-b border-blue-gray-100 bg-blue-gray-50  p-4">
+              <th className="border-b border-blue-gray-100 bg-blue-gray-50  p-4">
                 ID
               </th>
               <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
@@ -87,7 +87,7 @@ function AllFood() {
                   <td className="p-4 border-b border-blue-gray-50">
                     {food.category}
                   </td>
-                  <td className="p-4 border-b border-blue-gray-50">
+                  <td className="p-4 border-b border-blue-gray-50 md:line-clamp-2">
                     {food.description}
                   </td>
                   <td className="p-4 border-b border-blue-gray-50">
@@ -115,7 +115,7 @@ function AllFood() {
                   colSpan="8"
                   className="p-4 border-b border-blue-gray-50 text-center"
                 >
-                  <FontAwesomeIcon icon={faSpinner} className="h-6 w-7"/>
+                  <FontAwesomeIcon icon={faSpinner} className="h-6 w-7" />
                 </td>
               </tr>
             )}
@@ -141,3 +141,6 @@ function AllFood() {
 }
 
 export default AllFood;
+
+
+
