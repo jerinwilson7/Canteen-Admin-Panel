@@ -6,6 +6,7 @@ import OrderTable from "./Orders/OrderTable";
 import Dashboard from "./Dashboard/Dashboard";
 import Layout from "./Shared/Layout";
 import Chart from "./Dashboard/Chart";
+import FoodProfileChart from "./Dashboard/FoodProfileChart";
 
 export {
   Login,
@@ -15,5 +16,6 @@ export {
   OrderTable,
   Dashboard,
   Layout,
+  FoodProfileChart,
   Chart,
 };
