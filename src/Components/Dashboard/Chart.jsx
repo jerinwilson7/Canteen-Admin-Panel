@@ -5,39 +5,64 @@ import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAx
 
 const data = [
     {
-        "name": "Page A",
-        "uv": 4000,
-        "pv": 2400
+        "name": "January",
+        "revenue": 4000,
+        "expense": 2400
     },
     {
-        "name": "Page B",
-        "uv": 3000,
-        "pv": 1398
+        "name": "Feb",
+        "revenue": 3000,
+        "expense": 1398
     },
     {
-        "name": "Page C",
-        "uv": 2000,
-        "pv": 9800
+        "name": "March",
+        "revenue": 6000,
+        "expense": 9800
     },
     {
-        "name": "Page D",
-        "uv": 2780,
-        "pv": 3908
+        "name": "April",
+        "revenue": 2780,
+        "expense": 3908
     },
     {
-        "name": "Page E",
-        "uv": 1890,
-        "pv": 4800
+        "name": "May",
+        "revenue": 5890,
+        "expense": 8800
     },
     {
-        "name": "Page F",
-        "uv": 2390,
-        "pv": 3800
+        "name": "June",
+        "revenue": 2390,
+        "expense": 3800
     },
     {
-        "name": "Page G",
-        "uv": 3490,
-        "pv": 4300
+        "name": "July",
+        "revenue": 7490,
+        "expense": 8300
+    },
+    {
+        "name": "August",
+        "revenue": 4490,
+        "expense": 5300
+    },
+    {
+        "name": "September",
+        "revenue": 3290,
+        "expense": 4100
+    },
+    {
+        "name": "October",
+        "revenue": 2490,
+        "expense": 3400
+    },
+    {
+        "name": "November",
+        "revenue": 3190,
+        "expense": 4300
+    },
+    {
+        "name": "December",
+        "revenue": 2350,
+        "expense": 3240
     }
 ]
 
@@ -56,8 +81,8 @@ function Chart() {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="pv" fill="#8884d8" />
-            <Bar dataKey="uv" fill="#82ca9d" />
+            <Bar dataKey="revenue" fill="#98df8a" />
+            <Bar dataKey="expense" fill="#ff6961" />
         </BarChart>
         // <div className="h-[22rem] bg-white p-4 rounded-sm border border-gray-200 flex flex-col flex-1">
         //     <strong className="text-gray-700 font-medium">Transactions</strong>
