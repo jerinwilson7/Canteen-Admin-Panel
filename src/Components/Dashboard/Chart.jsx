@@ -69,21 +69,28 @@ const data = [
 
 function Chart() {
     return (
-        <BarChart width={730} height={250} data={data}
-            margin={{
-                top: 20,
-                right: 10,
-                left: -10,
-                bottom: 0
-            }}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="revenue" fill="#98df8a" />
-            <Bar dataKey="expense" fill="#ff6961" />
-        </BarChart>
+        <div className="h-[22rem] bg-white p-4 rounded-sm border border-gray-200 flex flex-col flex-1">
+            <strong className='text-mistBlue font-medium font-Roboto'>Transactions</strong>
+            <div className="mt-3 w-full flex-1 text-xs">
+                <ResponsiveContainer width="100%" height="100%">
+                    <BarChart width={730} height={250} data={data}
+                        margin={{
+                            top: 20,
+                            right: 10,
+                            left: -10,
+                            bottom: 0
+                        }}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="revenue" fill="#98df8a" />
+                        <Bar dataKey="expense" fill="#ff6961" />
+                    </BarChart>
+                </ResponsiveContainer>
+            </div>
+        </div>
         // <div className="h-[22rem] bg-white p-4 rounded-sm border border-gray-200 flex flex-col flex-1">
         //     <strong className="text-gray-700 font-medium">Transactions</strong>
         //     <div className="mt-3 w-full flex-1 text-xs">
