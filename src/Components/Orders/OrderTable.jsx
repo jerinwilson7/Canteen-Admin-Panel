@@ -102,16 +102,13 @@ function OrderTable() {
 
 
   return (
-    <div>
+    <div className='flex-1 bg-white pt-3 px-4 border border-gray-200-200 rounded-sm'>
+      <div className="flex-row space-x-3">
 
-      <div className='flex flex-row text-2xl font-Roboto   space-x-2'>
-        <h1 className='font-light'>All Orders</h1>
-        <h1 className='text-seaGreen font-bold'>{count}</h1>
-
-
+        <strong className='text-gray-700 font-medium'>All Orders</strong>
+        <strong className='text-seaGreen font-medium'>{count}</strong>
       </div>
-
-      <div className='mt-5 border border-gray-300'>
+      <div className="border-x border-gray-200 rounded-sm mt-3">
 
         <DataTable
           columns={columns}
