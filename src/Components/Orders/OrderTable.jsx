@@ -29,7 +29,6 @@ function OrderTable() {
   const fetchOrders = async () => {
     try {
       const response = await axios.get(`${server}/admin/orders`);
-      console.log(response.data)
 
       const orderCount = response.data.length;
       setCount(orderCount);
@@ -48,7 +47,6 @@ function OrderTable() {
           createdAt: formatDate(order.createdAt)
         };
       });
-      console.log(orderData.length)
       setData(orderData);
       setFilter(orderData)
       setLoading(false)

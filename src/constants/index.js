@@ -1,4 +1,4 @@
-import { ArrowLeftRightIcon, BarChart3, Utensils } from "lucide-react";
+import { ArrowLeftRightIcon, BarChart3, Users, Utensils } from "lucide-react";
 
 export const Sidebar_Links = [
   {
@@ -20,9 +20,9 @@ export const Sidebar_Links = [
     icon: <ArrowLeftRightIcon />,
   },
   {
-    key: "menu",
-    label: "Menu",
-    path: "/menu",
-    icon: <BarChart3 />,
+    key: "users",
+    label: "Users",
+    path: "/users",
+    icon: <Users />,
   },
 ];
