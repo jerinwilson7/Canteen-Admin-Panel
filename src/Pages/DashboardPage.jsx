@@ -1,5 +1,5 @@
 import React from "react";
-import { Chart, Dashboard, FoodProfileChart } from "../Components";
+import { Chart, Dashboard, FoodProfileChart, OrderTable } from "../Components";
 
 function DashboardPage() {
   return (
@@ -8,6 +8,9 @@ function DashboardPage() {
       <div className="flex flex-row gap-4 w-full">
         <Chart />
         <FoodProfileChart />
+      </div>
+      <div className="flex flex-row gap-4 w-full">
+        <OrderTable />
       </div>
     </div>
   );
