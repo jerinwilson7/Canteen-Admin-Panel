@@ -6,8 +6,8 @@ import {
   EditFoodPage,
   FoodPage,
   LoginPage,
-  MenuPage,
   OrdersPage,
+  UsersPage,
 } from "./Pages";
 import { Layout } from "./Components";
 
@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<DashboardPage />} />
           <Route path="/food" element={<FoodPage />} />
-          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/users" element={<UsersPage />} />
           <Route path="/orders" element={<OrdersPage />} />
           <Route path="/add-food" element={<AddProductPage />} />
           <Route path="/all-products" element={<FoodPage />} />
